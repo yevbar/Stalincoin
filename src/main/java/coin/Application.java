@@ -1,4 +1,4 @@
-package hello;
+package coin;
 
 import java.util.Arrays;
 
@@ -17,17 +17,12 @@ public class Application {
   @Bean
   public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
     return args -> {
-      // To clean up logs
-      boolean noisyOutput = false;
+      System.out.println("Let's inspect the beans provided by Spring Boot:");
 
-      if (noisyOutput) {
-        System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-        String[] beanNames = ctx.getBeanDefinitionNames();
-        Arrays.sort(beanNames);
-        for (String beanName: beanNames) {
-          System.out.println(beanName);
-        }
+      String[] beanNames = ctx.getBeanDefinitionNames();
+      Arrays.sort(beanNames);
+      for (String beanName: beanNames) {
+        System.out.println(beanName);
       }
     };
   }
